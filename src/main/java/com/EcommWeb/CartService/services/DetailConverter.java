@@ -7,7 +7,10 @@ public class DetailConverter {
     public static DetailResponse convertDetailToDetailResponse(Details details){
         return new DetailResponse.DetailsResponseBuilder()
                 .item(details.getItem())
-                .itemPrice(details.getItemPrice())
-                .quantity(details.getQuantity()).build();
+                .price(details.getItemPrice())
+                .quantity(details.getQuantity())
+                .imageUrl(details.getImageUrl())
+                .title(details.getTitle())
+                .build();
     }
 }

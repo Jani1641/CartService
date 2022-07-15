@@ -9,34 +9,42 @@ import javax.persistence.*;
 public class Details {
     @Id
     @GeneratedValue
-    private Integer Id;
-
+    private Integer id;
     private Integer item;
-
+    private  String title;
     private float itemPrice;
     private Integer quantity;
-
-    public Details() {
-    }
-
+    private String imageUrl;
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnoreProperties(value = {"details","handler","hibernateLazyInitializer"})
     @JoinColumn(name = "order_id",referencedColumnName = "orderId")
     private CartOrder cartOrder;
 
-    public Details(Integer id, Integer item, float itemPrice, Integer quantity, CartOrder cartOrder) {
+    public Details() {
+    }
+
+    public Details(Integer item, String title, float itemPrice, Integer quantity, String imageUrl, CartOrder cartOrder) {
         this.item = item;
+        this.title = title;
         this.itemPrice = itemPrice;
         this.quantity = quantity;
+        this.imageUrl = imageUrl;
         this.cartOrder = cartOrder;
     }
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
-    public Integer getItem() {
-        return item;
+    public Integer getItem() {return item;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public void setItem(Integer item) {
@@ -65,5 +73,13 @@ public class Details {
 
     public void setQuantity(Integer quantity) {
         this.quantity = quantity;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

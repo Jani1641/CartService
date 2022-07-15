@@ -3,18 +3,14 @@ package com.EcommWeb.CartService.models;
 import java.util.List;
 
 public class CartResponse {
-
     private Integer cartId;
-
     private float amount;
     private String address;
-
-    private List<DetailResponse> details;
+    private List<DetailResponse> items;
 
     public Integer getCartId() {
         return cartId;
     }
-
     public void setCartId(Integer cartId) {
         this.cartId = cartId;
     }
@@ -22,7 +18,6 @@ public class CartResponse {
     public float getAmount() {
         return amount;
     }
-
     public void setAmount(float amount) {
         this.amount = amount;
     }
@@ -30,32 +25,28 @@ public class CartResponse {
     public String getAddress() {
         return address;
     }
-
     public void setAddress(String address) {
         this.address = address;
     }
 
-    public List<DetailResponse> getDetails() {
-        return details;
+    public List<DetailResponse> getItems() {
+        return items;
     }
-
-    public void setDetails(List<DetailResponse> details) {
-        this.details = details;
+    public void setItems(List<DetailResponse> items) {
+        this.items = items;
     }
 
     private CartResponse(CartResponseBuilder cartResponseBuilder){
         this.cartId=cartResponseBuilder.cartId;
         this.address=cartResponseBuilder.address;
         this.amount=cartResponseBuilder.amount;
-        this.details = cartResponseBuilder.detailResponseList;
+        this.items = cartResponseBuilder.detailResponseList;
     }
 
     public static class CartResponseBuilder{
 
         private Integer cartId;
-
         private float amount;
-
         private String address;
         private List<DetailResponse> detailResponseList;
 

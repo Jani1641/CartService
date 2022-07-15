@@ -1,27 +1,36 @@
 package com.EcommWeb.CartService.models;
 
 public class ProductResponse {
-    private Integer Id;
+    private Integer id;
     private String title;
     private String description;
     private float price;
-
+    private String imageUrl;
     private ProductResponse(ProductResponseBuilder productResponseBuilder){
-        this.Id = productResponseBuilder.id;
+        this.id=productResponseBuilder.id;
+        this.price=productResponseBuilder.price;
+        this.description=productResponseBuilder.description;
+        this.imageUrl = productResponseBuilder.imageUrl;
         this.title = productResponseBuilder.title;
-        this.description = productResponseBuilder.description;
-        this.price = productResponseBuilder.price;
     }
+
 
     public ProductResponse() {
     }
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getTitle() {
@@ -53,6 +62,8 @@ public class ProductResponse {
         private String title;
         private String description;
         private float price;
+        private String imageUrl;
+
 
         public ProductResponseBuilder title(String title){
             this.title = title;
@@ -70,6 +81,11 @@ public class ProductResponse {
             this.id = id;
             return this;
         }
+        public ProductResponseBuilder imageUrl(String imageUrl){
+            this.imageUrl = imageUrl;
+            return this;
+        }
+
         public ProductResponse build(){
             return new ProductResponse(this);
         }

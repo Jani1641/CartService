@@ -4,27 +4,42 @@ import com.EcommWeb.CartService.entities.CartOrder;
 import com.EcommWeb.CartService.entities.Details;
 
 public class DetailResponse {
-    private Integer item;
-    private float itemPrice;
-    private Integer quantity;
+    private Integer id;
+    private float price;
+    private Integer quantity=1;
+    private String imageUrl;
+    private String title;
 
     public DetailResponse() {
     }
 
-    public Integer getItem() {
-        return item;
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    public String getTitle() {
+        return title;
     }
 
-    public void setItem(Integer item) {
-        this.item = item;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public float getItemPrice() {
-        return itemPrice;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setItemPrice(float itemPrice) {
-        this.itemPrice = itemPrice;
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 
     public Integer getQuantity() {
@@ -41,25 +56,37 @@ public class DetailResponse {
         return details;
     }
     private DetailResponse(DetailsResponseBuilder detailsResponseBuilder){
-        this.item=detailsResponseBuilder.item;
-        this.itemPrice = detailsResponseBuilder.itemPrice;
+        this.title = detailsResponseBuilder.title;
+        this.id =detailsResponseBuilder.id;
+        this.price = detailsResponseBuilder.price;
         this.quantity = detailsResponseBuilder.quantity;
+        this.imageUrl = detailsResponseBuilder.imageUrl;
     }
     public static class DetailsResponseBuilder{
-        private Integer item;
-        private float itemPrice;
+        private Integer id;
+        private float price;
         private Integer quantity;
+        private String imageUrl;
+        private String title;
 
         public DetailsResponseBuilder item(Integer item){
-            this.item = item;
+            this.id = item;
             return this;
         }
-        public DetailsResponseBuilder itemPrice(float itemPrice){
-            this.itemPrice = itemPrice;
+        public DetailsResponseBuilder price(float itemPrice){
+            this.price = itemPrice;
             return this;
         }
         public DetailsResponseBuilder quantity(Integer quantity){
             this.quantity = quantity;
+            return this;
+        }
+        public DetailsResponseBuilder imageUrl (String imageUrl){
+            this.imageUrl = imageUrl;
+            return this;
+        }
+        public  DetailsResponseBuilder title (String title){
+            this.title = title;
             return this;
         }
         public DetailResponse build(){

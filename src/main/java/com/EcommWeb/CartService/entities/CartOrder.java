@@ -8,26 +8,13 @@ import java.util.List;
 
 @Entity
 public class CartOrder {
-
     @Id
     @GeneratedValue
     private Integer orderId;
-
     private float  amount;
-
     @Past
     private Date startDate;
-
-    private Integer customerId;
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
-
+    private String customerId;
     @Size(max = 50)
     private String address;
     @OneToMany(mappedBy = "cartOrder", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
@@ -41,6 +28,14 @@ public class CartOrder {
     }
 
     public CartOrder() {
+    }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
     public void setDetails(List<Details> details) {
