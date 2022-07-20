@@ -41,8 +41,6 @@ public class CartOrderController {
         return new ResponseEntity<>(response,HttpStatus.CREATED);
     }
 
-
-
     //display cart - working
     @GetMapping("/carts/{order_id}")
     public CartResponse getCart (@PathVariable Integer order_id){
@@ -51,14 +49,12 @@ public class CartOrderController {
         List<DetailResponse> detailsOfCart = cartServices.findDetailsOfCart(order_id);
         CartResponse totalDetails = new CartResponse.CartResponseBuilder()
                 .cartId(cartDetails.getCartId())
-                .address(cartDetails.getAddress())
                 .amount(cartDetails.getAmount())
                 .detailList(detailsOfCart)
                 .build();
         log.info("End of getCart function in controller");
         return totalDetails;
     }
-
 
     //deletes cart -working
     @DeleteMapping("/carts/{order_id}")
@@ -69,7 +65,6 @@ public class CartOrderController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-
     //deletes cart's item - working
     @DeleteMapping("/carts/{order_id}/products/{item_id}")
     public ResponseEntity<HttpStatus> deleteCartItem(@PathVariable Integer order_id, @PathVariable Integer item_id) {
@@ -79,7 +74,6 @@ public class CartOrderController {
         log.info("End of deleteCartItem function in controller");
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
-
 
     // saves the item into cart-working
     @PutMapping("/carts/{order_id}/products")

@@ -7,7 +7,6 @@ public class CartOrderConverter {
     public static CartOrderResponse convertCartOrderToCartOrderResponse(CartOrder cartOrder){
         return new CartOrderResponse.CartOrderResponseBuilder()
                 .cartId(cartOrder.getOrderId())
-                .address(cartOrder.getAddress())
                 .amount(cartOrder.getAmount())
                 .build();
     }

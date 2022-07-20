@@ -5,7 +5,6 @@ import lombok.Setter;
 
 public class CartOrderResponse {
     private float amount;
-    private String address;
     private Integer cartId;
 
     public float getAmount() {
@@ -14,14 +13,6 @@ public class CartOrderResponse {
 
     public void setAmount(float amount) {
         this.amount = amount;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public Integer getCartId() {
@@ -34,13 +25,11 @@ public class CartOrderResponse {
 
     private CartOrderResponse(CartOrderResponseBuilder cartOrderResponseBuilder){
         this.amount = cartOrderResponseBuilder.amount;
-        this.address = cartOrderResponseBuilder.address;
         this.cartId = cartOrderResponseBuilder.cartId;
     }
 
     public static class CartOrderResponseBuilder{
         private float amount;
-        private String address;
         private Integer cartId;
 
         public CartOrderResponseBuilder amount(float amount){
@@ -48,10 +37,6 @@ public class CartOrderResponse {
             return this;
         }
 
-        public CartOrderResponseBuilder address(String address){
-            this.address = address;
-            return this;
-        }
         public CartOrderResponseBuilder cartId(Integer cartId){
             this.cartId= cartId;
             return this;

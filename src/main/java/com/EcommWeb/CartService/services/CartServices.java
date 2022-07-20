@@ -146,7 +146,6 @@ public class CartServices {
         CartOrderResponse value = new CartOrderResponse.CartOrderResponseBuilder()
                 .cartId(cartOrder.get().getOrderId())
                 .amount(cartOrder.get().getAmount())
-                .address(cartOrder.get().getAddress())
                 .build();
         log.info("End of findCartDetails function from CartServices");
         return value;

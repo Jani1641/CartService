@@ -15,16 +15,13 @@ public class CartOrder {
     @Past
     private Date startDate;
     private String customerId;
-    @Size(max = 50)
-    private String address;
     @OneToMany(mappedBy = "cartOrder", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Details> details;
 
-    public CartOrder(Integer orderId, float amount, Date startDate, String address) {
+    public CartOrder(Integer orderId, float amount, Date startDate) {
         this.orderId = orderId;
         this.amount = amount;
         this.startDate = startDate;
-        this.address = address;
     }
 
     public CartOrder() {
@@ -63,14 +60,6 @@ public class CartOrder {
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public Integer getOrderId() {

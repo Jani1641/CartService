@@ -5,7 +5,6 @@ import java.util.List;
 public class CartResponse {
     private Integer cartId;
     private float amount;
-    private String address;
     private List<DetailResponse> items;
 
     public Integer getCartId() {
@@ -21,14 +20,6 @@ public class CartResponse {
     public void setAmount(float amount) {
         this.amount = amount;
     }
-
-    public String getAddress() {
-        return address;
-    }
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public List<DetailResponse> getItems() {
         return items;
     }
@@ -38,7 +29,6 @@ public class CartResponse {
 
     private CartResponse(CartResponseBuilder cartResponseBuilder){
         this.cartId=cartResponseBuilder.cartId;
-        this.address=cartResponseBuilder.address;
         this.amount=cartResponseBuilder.amount;
         this.items = cartResponseBuilder.detailResponseList;
     }
@@ -47,7 +37,6 @@ public class CartResponse {
 
         private Integer cartId;
         private float amount;
-        private String address;
         private List<DetailResponse> detailResponseList;
 
         public CartResponseBuilder cartId (Integer cartId){
@@ -57,11 +46,6 @@ public class CartResponse {
 
         public CartResponseBuilder amount(float amount){
             this.amount = amount;
-            return this;
-        }
-
-        public CartResponseBuilder address(String address){
-            this.address = address;
             return this;
         }
 
